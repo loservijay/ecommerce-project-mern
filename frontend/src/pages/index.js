@@ -10,7 +10,7 @@ import { OtpVerificationPage } from "./OtpVerificationPage";
 import { ProductDetailsPage } from "./ProductDetailsPage";
 import { ProductUpdatePage } from "./ProductUpdatePage";
 import { ResetPasswordPage } from "./ResetPasswordPage";
-import { SignupPage } from "./SignupPage";
+import   SignupPage  from "./SignupPage";
 import { UserOrdersPage } from "./UserOrdersPage";
 import { UserProfilePage } from "./UserProfilePage";
 import { WishlistPage } from "./WishlistPage";
@@ -32,4 +32,4 @@ export {
     AdminOrdersPage,
     WishlistPage,
     OtpVerificationPage
-}
+};
