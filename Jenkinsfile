@@ -18,7 +18,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS_ID}", passwordVariable: 'PASS', usernameVariable: 'USER')]) {
           sh '''
-            docker build -t $DOCKER_IMAGE .
+            docker build -t $DOCKER_IMAGE ./server
             echo $PASS | docker login -u $USER --password-stdin
             docker push $DOCKER_IMAGE
           '''
