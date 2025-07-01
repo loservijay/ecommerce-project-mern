@@ -1,15 +1,16 @@
+
 pipeline {
   agent any
 
   environment {
     DOCKER_IMAGE = "loservijay/ecommerce-project-mern"
-    DOCKER_CREDENTIALS_ID = "dockerhub"  // must match the ID you saved in Jenkins credentials
+    DOCKER_CREDENTIALS_ID = "dockerhub"  // Make sure this ID matches the one you added in Jenkins credentials
   }
 
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/loservijay/ecommerce-project-mern.git'
+        git branch: 'main', url: 'https://github.com/loservijay/ecommerce-project-mern.git'
       }
     }
 
