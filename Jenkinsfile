@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = "loservijay/ecommerce-project-mern"
-    DOCKER_CREDENTIALS_ID = "dockerhub"  // Make sure this ID matches the one you added in Jenkins credentials
+    DOCKER_CREDENTIALS_ID = "dockerhub"  // Your DockerHub credentials ID
   }
 
   stages {
@@ -22,6 +22,16 @@ pipeline {
             docker push $DOCKER_IMAGE
           '''
         }
+      }
+    }
+
+    stage('Deploy to EKS') {
+      steps {
+        sh '''
+          aws eks update-kubeconfig --region ap-south-1 --name alo
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+        '''
       }
     }
   }
